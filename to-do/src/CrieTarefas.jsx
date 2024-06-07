@@ -1,24 +1,8 @@
 import { useEffect, useState } from "react"
 import Notas from "./img/Notas.png"
 
-
-
-
 export default function CrieTarefas(){
-  let tarefa = {
-    concluida: false,
-    nomeTarefa: "Tarefa 01",
-  }
-
-  localStorage.setItem ("tarefa", JSON.stringify(tarefa))
-
-  let getTarefa = localStorage.getItem("tarefa")
   
-  console.log(getTarefa)
-
-  const tarefaObject = JSON.parse(getTarefa)
-
-
     return(
         <div>
         <div className="flex justify-center mt-4">
