@@ -1,12 +1,29 @@
-export default function Tarefas (){
+import { useEffect, useState } from "react"
+
+export default function Tarefas (props){
+    const [tarefaRecebida, setTarefarecebida] = useState ({})
+    function receberLocalstorage (){
+        let getTarefa = JSON.parse(localStorage.getItem("tarefa")) 
+        setTarefarecebida (getTarefa) 
+        console.log(getTarefa)
+        props.setAtualizar (false)
+    }
+    useEffect(()=> {
+        console.log("teste")
+        if(props.atualizar === true){
+            receberLocalstorage()
+        }
+    },[props.atualizar])
     return(
-        <div className="flex justify-center mt-10 ">
-            <div className=" w-screen max-w-2xl h-12 bg-gray-400 flex items-center   px-4">
+
+        <div className="flex justify-center  mt-10 ">
+            <div className=" w-screen max-w-2xl h-12 bg-gray-400 flex items-center px-4 justify-between">
             <button className="bg-white">x</button>
-            <p className="text-white px-40">{}</p>
+            <p className="text-white px-4 w-full">{tarefaRecebida.nomeTarefa}</p>
             <button className="bg-white ">x</button>
            
         </div>
     </div>
     )
 }
+

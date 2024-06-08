@@ -2,54 +2,44 @@ import { useState } from "react"
 import Logo from "./img/Logo.png"
 
 
-export default function Page (){
-
-    // let tarefa = {
-    //     concluida: false,
-    //     nomeTarefa: "Tarefa 01",
-    //   }
+export default function Page(props) {
     
-      localStorage.setItem ("tarefa", JSON.stringify(tarefa))
-    
-      let getTarefa = localStorage.getItem("tarefa") !== null ? tarefa : []
-      
-    //   console.log(getTarefa)
-    
-      const tarefaObject = JSON.parse(getTarefa)
+const [inputText, setInputText] = useState('')
     
 
-    // const [textoTarefa, setTextoTarefa] = useState ("Criar +")
+    //   let getTarefa = localStorage.getItem("tarefa") !== null ? tarefa : []
 
-    function input (){
-        const [inputText, setInputText] = useState ('')
-        
-        const handleInputChange = (event) => {
-        setInputText(event.target.value)
+    //   const tarefaObject = JSON.parse(getTarefa)
+    //  }
+    const handleInputChange = (tarefa) => {
+        setInputText(tarefa.target.value)
+        console.log(inputText)
     }
-        const handleButtonClick = () => {
+
+
+    const handleButtonClick = () => {
+        props.atualizar(true)
+        let tarefa = {
+            concluida: false,
+            nomeTarefa: inputText,
+          }
         console.log("Tarefa do dia:", inputText)
+        localStorage.setItem ("tarefa", JSON.stringify(tarefa))
     }
 
-    }
+   
+    return (
 
-
-    // function eventCriar (){
-    // setTextoTarefa("Criado! :)")
-
-    // } 
-
-    return(
-    
-        <div className="flex justify-center items-center grid bg-gray-700 h-52">
-                <img className="ml-72 mt-20 " src={Logo} alt="logo" />
-            <div className="mt-12  ">   
+        <div className="flex flex-col justify-center items-center bg-gray-700 h-52">
+            <img className=" mt-20 " src={Logo} alt="logo" />
+            <div className="mt-12 flex justify-center ">
                 <input className="w-screen max-w-2xl h-12 px-6 rounded-lg bg-gray-400 shadow-2xl text-white"
-                 type="text" 
-                 value={inputText}
-                 onChange={handleInputChange}
-                 placeholder="Adicione uma nova tarefa" />
-                <button onClick={handleButtonClick} className=" ml-5 h-12 w-20 rounded-lg bg-blue text-white shadow-2xl"></button>
-                <p>{inputText}</p>
+                    type="text"
+                    value={inputText}
+                    onChange={handleInputChange}
+                    placeholder="Adicione uma nova tarefa" />
+                <button onClick={handleButtonClick} className=" ml-5 h-12 w-20 rounded-lg bg-blue text-white shadow-2xl"> Criar +</button>
+
             </div>
         </div>
     )

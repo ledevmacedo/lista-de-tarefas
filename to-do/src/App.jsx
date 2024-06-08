@@ -2,19 +2,19 @@ import './App.css'
 import CrieTarefas from './CrieTarefas'
 import Page from './Page'
 import NumeroTarefas from './NumeroTarefas'
-import './App.css'
 import Tarefas from './Tarefas'
+import { useState } from 'react'
 
 function App() {
+  const [atualizar, setAtualizar ] = useState(true)
+
   return (
-    <>
   <div>
-      <Page />
+      <Page atualizar = {setAtualizar} />
       <NumeroTarefas/>
       <CrieTarefas />
-      <Tarefas />
+      <Tarefas atualizar = {atualizar} setAtualizar = {setAtualizar}  />
   </div>
-    </>
   )
 }
 
