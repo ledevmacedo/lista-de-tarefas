@@ -1,2 +1,2 @@
-Projeto lista de tarefas feito em React com Tailwindcss e Vite.
+Projeto Lista de Tarefas, feito em React com Tailwindcss e Vite.
 
