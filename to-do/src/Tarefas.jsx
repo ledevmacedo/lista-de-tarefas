@@ -18,9 +18,9 @@ export default function Tarefas (props){
 
         <div className="flex justify-center  mt-10 ">
             <div className=" w-screen max-w-2xl h-12 bg-gray-400 flex items-center px-4 justify-between">
-            <button className="bg-white">x</button>
+            <button className="bg-gray-500 text-white w-6 rounded-full  ">.</button>
             <p className="text-white px-4 w-full">{tarefaRecebida.nomeTarefa}</p>
-            <button className="bg-white ">x</button>
+            <button className="bg-gray-500 text-white w-6 rounded-full ">.</button>
            
         </div>
     </div>
