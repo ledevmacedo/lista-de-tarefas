@@ -5,24 +5,31 @@ import Logo from "./img/Logo.png"
 export default function Page(props) {
     
 const [inputText, setInputText] = useState('')
+const [inputText2, setInputText2] = useState('')
     
 
-    //   let getTarefa = localStorage.getItem("tarefa") !== null ? tarefa : []
+    //  let getTarefa = localStorage.getItem("tarefa") !== null ? tarefa : []
 
     //   const tarefaObject = JSON.parse(getTarefa)
     //  }
     const handleInputChange = (tarefa) => {
         setInputText(tarefa.target.value)
-        console.log(inputText)
+        setInputText2(tarefa.target.value)
+        console.log(inputText, inputText2)
     }
 
 
     const handleButtonClick = () => {
         props.atualizar(true)
-        let tarefa = {
+        let tarefa = [{
             concluida: false,
             nomeTarefa: inputText,
-          }
+          },
+        {
+            concluida: false,
+            nomeTarefa2: inputText2,
+        }
+    ]
         console.log("Tarefa do dia:", inputText)
         localStorage.setItem ("tarefa", JSON.stringify(tarefa))
     }
